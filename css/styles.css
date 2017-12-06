@@ -1,0 +1,112 @@
+/*
++-----------------------+---------------+  MAP        #map        contains map via Google Maps
+|                       |    HEADER     |  SCSU Logo  #SCSUlogo   SCSU's logo
+|                       |  «SCSU Logo»  |             .SCSUname   SCSU's name
+|                       +---------------+             .SCSUcolor  SCSU's official blue
+|                       |               |  button
+|                       |   DASHBOARD   |
+|          MAP          |   «buttons»   |
+|                       |               |
+|                       |               |
+|                       +---------------+
+|                       |    FOOTER     |
+|                       |    «icons»    |
++-----------------------+---------------+
+*/
+/**********************************************************************
+ * Always set the map height explicitly to define the size of the div *
+ * element that contains the map.                                     *
+ **********************************************************************/
+
+/* HTML Reset */
+* {
+  margin:  0;
+  border:  0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+span {
+  margin:  0;
+  border:  0;
+  padding: 0;
+}
+
+/* Documentation */
+#todo {
+  display: none;
+}
+
+  /*                        */
+ /* Application Components */
+/*                        */
+
+/* Screen Layout */
+#map {
+  float:  left;
+  height: 99vh;
+  width:  99vh;
+  border: 0.5vh solid;
+  color: rgb(0, 51, 173);
+}
+#header {
+  height: 10vh;
+  padding-top:1vh;
+  xbackground-color: orange;
+}
+#dashboard {
+  height: 77vh;
+  xbackground-color: green;
+}
+#footer {
+  height:      11.5vh; /* Height of the footer */
+  border-width: 0.5vh;
+  border-top:  solid ;
+  border-color: rgb(0, 51, 173);
+  xbackground-color: red;
+  xleft: 100vh;
+  xtop:    88vh;
+  xwidth: #header.width;
+}
+
+/* Cosmetic Stylings */
+/* @Header */
+#SCSUlogo {
+  float:  left;
+  height: 10vh;
+  width:  10vh;
+  xborder:  0.1vh solid blue;
+}
+#NameLeading {
+  height: 0.8vh;
+}
+.SCSUname {
+  float: left;
+  font-family: "Palatino", Times, serif;
+  font-size:   3.2vh;
+  xborder:     0.1vh solid blue;
+  line-height: 1;
+}
+.SCSUcolor{
+  color: rgb(0, 51, 173);
+}
+/* @Footer */
+#icons8 {
+  position:absolute;
+  bottom: 0;
+}
+/* Application Components */
+
+button {
+    background-color: rgb( 0, 51, 173 ); // background is SCSU Blue
+    border: 5px outset  rgb( 100, 100, 100 );
+    color: white; // text color
+    /*padding: 15px 32px;*/
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 2px 4px 2px 4px;
+    width: 21vh;
+}

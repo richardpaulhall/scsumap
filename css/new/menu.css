@@ -1,0 +1,154 @@
+
+/* This edits the Menu bar */
+ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(0, 51, 173);
+	
+}
+
+
+/* This keeps the menu starting from the left side of the screen */
+li {
+        float: left;
+}
+
+/* This is the styling for the menu options */
+.dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        xpadding: 14px 16px;
+        padding: 14px 8px;
+        text-decoration: none;
+	font-family: "Verdana";
+	font-weight: bold;
+}
+
+/* Background color when you hover over the menu */
+.dropdown:hover .dropbtn {
+        background-color: white;
+}
+
+/*This changes the font color when you hover over a menu option*/
+.dropdown:hover .dropbtn {
+	color: rgb(0, 51, 173);
+	}
+
+li.dropdown {
+        display: inline-block;
+}
+
+/* Hides the dropdown content, sets the background color */
+.dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 20%;
+	border: 2px solid rgb(0, 51, 173);
+        
+}
+
+/* Font color of dropdown content */
+.dropdown-content a {
+        color: black;
+        xpadding: 12px 16px;
+        padding: 4px 8px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+	font-family: "Verdana";
+}
+
+/* background color when you hover over a dropdown option */
+.dropdown-content a:hover {
+	background-color: rgb(0, 51, 173);
+	color:white;
+}
+
+/* Displays the dropdown content when you hover over a menu option */
+.dropdown:hover .dropdown-content {
+        display: block;
+}
+
+
+h3 {
+	font-family: "Verdana";
+}
+
+h4{
+
+	font-family: "Verdana";
+	color: black;
+	font-weight:bold;
+}
+
+h5 {
+	font-family: "Verdana";
+	color: black;
+	font-size: 12px;
+}
+
+.column {
+    float: left;
+    width: 45%;
+    padding: 10px;
+       
+}
+
+
+
+.btn{
+	color: white;
+	background-color: rgb(0, 51, 173);
+	padding: 2px 3px;
+
+	margin: 2px;
+	font-size: 15px;
+
+	cursor: pointer;
+	font-family: "Verdana";
+	font-weight: bold;
+}
+
+span, b{
+	color:white;
+	font-family: "Verdana";
+}
+
+  #header {
+    position: static;
+  }
+  #dashboard {
+    position: static;
+  }
+  
+#floating-panel {
+    
+    position: static;
+    top: 10px;
+    left: 25%;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+    
+  }
+
+
+ #directions-panel {
+      position: static;
+      z-index: 5;
+      background-color: rgb(0, 51, 173);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      xborder: 1px solid #999;
+      text-align: center;
+      font-family: 'Roboto','sans-serif';
+      line-height: 30px;
+}
+

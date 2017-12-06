@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><!-- first line, or at least frst 512 characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SCSU Interactive Map - CSC 535">
+    <meta name="author" content="2017-Fall Project team 4">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>SCSU Interactive Map - CSC 535</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCI9t0ROHD1SMmZMgRqaEEhVXArjmfC06M"></script>
+    <!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=XXX"></script -->
+    <!-- AIzaSyCI9t0ROHD1SMmZMgRqaEEhVXArjmfC06M -->
+
+    <script type="text/javascript" src="js-library/js-map-label/maplabel.js"></script> <!-- RPH 2017/11/06 -->
+
+    <script type="text/javascript" src="js/facility.js"></script> <!-- RPH 2017/10/10 -->
+    <script type="text/javascript" src="js/vector.js"></script>   <!-- RPH 2017/10/25 -->
+    <script type="text/javascript" src="js/map.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <!--[if lt IE 9]>
+      <script src="js/html5shim.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+<div id="todo">
+
+<!--  code to poll magnetometer here
+  https://codepen.io/rlautan/pen/YPzGjo -->
+<!--  application Footer needs lnk to an <About>page:
+          authorship information
+          copyright information
+          contact information
+          sitemap, back to top links (na)
+          related documents > links to SCSU -->
+
+<!-- Request digital files of the logo, font; contact the Office of Public Affairs. -->
+<!-- Font: Palatino or Venetian 301 -->
+<!-- Google Map
+       Add SCSU's name to the map
+       Add North pointing arrow
+-->
+
+</div><!-- id="todo" -->
+
+<!--  +--------------+
+      |     MAP      |
+      +--------------+ -->
+<div id="map"></div>
+
+<!--  +-------------+
+      |    HEADER   |
+      |  SCSU LOGO  |
+      |  SCSU NAME  |
+      +-------------+ -->
+<div id="header">
+  <img id="SCSUlogo" src="images/southern-connecticut-state-university-squarelogo-1425561184985.png">
+  <div id="NameLeading"></div>
+  <p   class="SCSUname">Southern Connecticut<br>State University</p>
+</div> <!-- id="header" -->
+
+<!-- +-----------+
+     |           |
+     |   MENU    |
+     |           |
+     +-----------+ -->
+<ul>
+
+<li class="dropdown">
+  <a href="#" class="dropbtn">Classrooms</a>
+  <div class="dropdown-content" id="classrooms_dropDownMenu">
+
+			  <h3>Academic Buildings</h3>
+        		<a href="#" onclick="displayFacilityMarker( ACADEMIC_SCIENCE_AND_LABORATORY_BUILDING ) ;">Academic Science and<br>Labratory Building</a>
+       			<a href="#" onclick="displayFacilityMarker( BULEY_LIBRARY );">Buley Library</a>
+  			    <a href="#" onclick="displayFacilityMarker( CLASSROOM_BUILDING_8 );">Classroom<br>Building 8</a>
+  			    <a href="#" onclick="displayFacilityMarker( DAVIS_HALL );">Davis Hall</a>
+  			    <a href="#" onclick="displayFacilityMarker( EARL_HALL );">Earl Hall</a>
+  			    <a href="#" onclick="displayFacilityMarker( ENGLEMAN_HALL );">Engleman Hall</a>
+        		<a href="#" onclick="displayFacilityMarker( JENNINGS_HALL );">Jennings Hall</a>
+  			    <a href="#" onclick="displayFacilityMarker( LYMAN_CENTER );">Lyman Center</a>
+        		<a href="#" onclick="displayFacilityMarker(MORRILL_HALL);">Morrill Hall</a>
+        		<a href="#" onclick="displayFacilityMarker(NURSING_CLASSROOM_BUILDING);">Nursing Classroom<br>Building</a>
+        		<a href="#" onclick="displayFacilityMarker(PELZ_GYMNASIUM );">Pelz Gymnasium</a>
+  			    <a href="#" onclick="displayFacilityMarker(SCHOOL_OF_BUSINESS );">School of Business</a>
+
+  </div>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropbtn">Buildings</a>
+  <div class="dropdown-content" id="buildings_dropDownMenu">
+	  <div class="row">
+			<div class="column">
+			  <h3>Residence Halls</h3>
+  			<a href="#" onclick="displayFacilityMarker( BROWNELL_HALL );">Brownell Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( CHASE_HALL );">Chase Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( FARNHAM_HALL );">Farnham Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( HICKERSON_HALL );">Hickerson Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( NEFF_HALL );">Neff Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( NORTH_CAMPUS_RESIDENCE_COMPLEX );">North Campus<br>Residence Complex</a>
+  			<a href="#" onclick="displayFacilityMarker( SCHWARTZ_HALL );">Schwartz Hall</a>
+  			<a href="#" onclick="displayFacilityMarker( WEST_CAMPUS_RESIDENCE_COMPLEX );">West Campus<br>Residence Complex</a>
+  			<a href="#" onclick="displayFacilityMarker( WILKINSON_HALL );">Wilkinson Hall</a>
+			</div>
+	</div>
+	<div class="row">
+			<div class="column">
+			  <h3>Other Buildings</h3>
+  			<a href="#" onclick="displayFacilityMarker( ADANTI_STUDENT_CENTER );">Adanti Student Center</a>
+  			<a href="#" onclick="displayFacilityMarker( ALUMNI_HOUSE );">Alumni House</a>
+  			<a href="#" onclick="displayFacilityMarker( ENERGY_CENTER );">Energy Center</a>
+  			<a href="#" onclick="displayFacilityMarker( ETHNIC_HERITAGE_CENTER );">Ethnic Heritage Center</a>
+  			<a href="#" onclick="displayFacilityMarker( FACILITIES_OPERATIONS_AND_PLANNING );">Facilities Operations<br>and Planning</a>
+  			<a href="#" onclick="displayFacilityMarker( GRANOFF_STUDENT_HEALTH_CENTER );">Granoff Student<br>Health Center</a>
+  			<a href="#" onclick="displayFacilityMarker( LANG_HOUSE );">Lang House</a>
+  			<a href="#" onclick="displayFacilityMarker( OFFICE_BUILDING_1 );">Office Building 1</a>
+  			<a href="#" onclick="displayFacilityMarker( ORLANDO_HOUSE );">Orlando House</a>
+  			<a href="#" onclick="displayFacilityMarker( TEMPORARY_BUILDING_6 );">Temporary Building 6</a>
+  			<a href="#" onclick="displayFacilityMarker( UNIVERSITY_POLICE );">University Police Department</a>
+  			<a href="#" onclick="displayFacilityMarker( WINTERGREEN_BUILDING );">Wintergreen Building</a>
+			</div>
+	</div>
+
+   </div>
+</li>
+  <li class="dropdown">
+    <a href="#" class="dropbtn">Parking</a>
+    <div class="dropdown-content" id="parking_lots_dropDownMenu">
+		  <div class="row">
+			  <div class="column">
+				  <h3>Parking Garages</h3>
+          <a href="#" onclick="displayParkingMarker( FITCH_STREET_GARAGE );">Fitch Street Garage</a>
+          <a href="#" onclick="displayParkingMarker( WEST_CAMPUS_GARAGE );">West Campus Garage</a>
+          <a href="#" onclick="displayParkingMarker( WINTERGREEN_AVENUE_GARAGE );">Wintergreen Avenue Garage</a>
+				</div>
+        <div class="column">
+			    <h3>Parking By Type</h3>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_COMMUTER );">Commuter</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_GRADUATE );">Graduate</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_SENIOR );">Senior Student</a>
+          <a>---------</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_RESIDENCE );">Residence</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_NORTH_CAMPUS );">North Campus</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_LOT_10_11 );">Lot 10 / 11</a>
+          <a>---------</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_VISITOR );">Visitor</a>
+          <a>---------</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_FACULTY );">Faculty</a>
+          <a href="#" onclick="displayParkingMarkersByClass( FACILITY_PARKING_SUBCLASS_STAFF );">Staff</a>
+				 </div>
+
+<!--
+			  <div class="column">
+			    <h3>Faculty and Staff Parking</h3>
+          <a href="#" onclick="displayFacilityMarker( P_2 );">P-2 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_5 );">P-5 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_11 );">P-11 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_12 );">P-12 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_12B );">P-12B Parking</a>
+				</div>
+				<div class="column">
+				  <h3>Graduate Student Parking</h3>
+          <a href="#" onclick="displayFacilityMarker( P_1 );">P-1 Parking</a>
+				</div>
+        <div class="column">
+          <h3>Commuter Student Parking</h3>
+          <a href="#" onclick="displayFacilityMarker( P_3 );">P-3 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_8 );">P-8 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_9 );">P-9 Parking</a>
+        </div>
+        <div class="column">
+          <h3>Residence Hall Students Parking</h3>
+          <a href="#" onclick="displayFacilityMarker( P_4 );">P-4 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_4A );">P-4A Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_6 );">P-6 Parking</a>
+          <a href="#" onclick="displayFacilityMarker( P_10 );">P-10 Parking</a>
+        </div>
+  -->
+			</div>
+    </div>
+  </li>
+  <li class="dropdown">
+    <a href="#" class="dropbtn">Other</a>
+    <div class="dropdown-content" id="other_dropDownMenu">
+      <div class="row">
+		  <div class="column">
+			  <h3>Athletic Facilities</h3>
+        <a href="#" onclick="displayFacilityMarker( BASEBALL_FIELD );">Baseball Field</a>
+        <a href="#" onclick="displayFacilityMarker( JESS_DOW_FIELD );">Jess Dow Field</a>
+        <a href="#" onclick="displayFacilityMarker( MOORE_FIELD_HOUSE );">Moore Field House</a>
+  			<a href="#" onclick="displayFacilityMarker( PELZ_GYMNASIUM );">Pelz Gymnasium</a>
+  			<a href="#" onclick="displayFacilityMarker( RUGBY_PRACTICE_FIELD );">Rugby Practice Field</a>
+  			<a href="#" onclick="displayFacilityMarker( SOFTBALL_FIELD );">Softball Field</a>
+  			<a href="#" onclick="displayFacilityMarker( TENNIS_COURTS );">Tennis Courts</a>
+			</div>
+			<div class="column">
+			  <h3>Dining Locations</h3>
+        <a href="#" onclick="displayFacilityMarker( BAGEL_WAGON );">Bagel Wagon</a>
+        <a href="#" onclick="displayFacilityMarker( BULEY_LIBRARY_CAFE );">Buley Library Cafe</a>
+        <a href="#" onclick="displayFacilityMarker( CONNECTICUT_HALL );">Connecticut Hall</a>
+        <a href="#" onclick="displayFacilityMarker( DAVIS_HALL_KIOSK );">Davis Hall Kiosk</a>
+        <a href="#" onclick="displayFacilityMarker( NORTH_CAMPUS_MARKET );">North Campus Market</a>
+				<a href="#" onclick="displayFacilityMarker( STUDENT_CENTER_FOOD_COURT );">Student Center Food Court</a>
+			</div>
+      <div class="column">
+        <h3>Bus Stops By Type</h3>
+        <a href="#" onclick="displayBusMarkersByClass( FACILITY_BUSSTOP_SUBCLASS_SHUTTLE );">Shuttle Stops</a>
+        <a href="#" onclick="displayBusMarkersByClass( FACILITY_BUSSTOP_SUBCLASS_TRANSIT );">Bus Stops</a>
+       </div>
+		</div>
+  </div>
+</li>
+<!-- li>
+  <a href="#" onclick="doGeolocation();">My Location</a>
+</li -->
+<!-- li>
+  <!- - added in hideCar() to remove parking lot marker - ->
+  <a href="#" onclick="hideBuilding(),hideCar();">Remove Markers</a>  <!- - RPH 2017/10/9 - - >
+</li -->
+</ul>
+
+<!-- +------------+
+     |            |
+     |  Utilities |
+	   |   GADGET   |
+     |            |
+     +------------+ -->
+
+<div id="floating-panel">
+
+  <button class="btn" onclick="doGeolocation();">Where am I?</button>  <!-- RPH -->
+  <button class="btn" onclick="hideAllMarkers()">Clear Markers</button>    <!-- RPH -->
+  <button class="btn" onclick="reSetMap();">Reset Map</button>    <!-- RPH -->
+  <button class="btn" onclick="displayParkedCarMarker( PARKED_CAR );">Park Your Car</button>
+</div>
+
+<!-- +------------+
+     |            |
+     | Directions |
+	   |   GADGET   |
+     |            |
+     +------------+ -->
+<!-- Rck,  -->
+<div id="directions-panel">
+  <span><b>Walking Directions</b><br></span>
+  <b>Start: </b>
+    <select id="start">
+      <option ></option>
+  <option value="GEO_LOC">Current Location</option>
+	<option value="ACADEMIC_SCIENCE_AND_LABORATORY_BUILDING">ASL</option>
+	<option value="ADANTI_STUDENT_CENTER">Adanti Student Center</option>
+	<option value="ALUMNI_HOUSE">Alumni House</option>
+	<option value="BAGEL_WAGON">Bagel Wagon</option>
+	<option value="BASEBALL_FIELD">Baseball Field</option>
+	<option value="BROWNELL_HALL">Brownell Hall</option>
+	<option value="BULEY_LIBRARY">Buley Library</option>
+	<option value="BULEY_LIBRARY_CAFE">Buley Library Cafe</option>
+	<option value="CHASE_HALL">Chase Hall</option>
+	<option value="CLASSROOM_BUILDING_8">Classroom Building 8</option>
+	<option value="CONNECTICUT_HALL">Connecticut Hall</option>
+	<option value="DAVIS_HALL">Davis Hall</option>
+	<option value="DAVIS_HALL_KIOSK">Davis Hall Kiosk</option>
+	<option value="EARL_HALL">Earl Hall</option>
+	<option value="ENERGY_CENTER">Energy Center</option>
+	<option value="ENGLEMAN_HALL">Engleman Hall</option>
+	<option value="ETHNIC_HERITAGE_CENTER">Ethnic Heritage Center</option>
+	<option value="FACILITIES_OPERATIONS_AND_PLANNING">Facilities Operations</option>
+	<option value="FARNHAM_HALL">Farnham Hall</option>
+	<option value="FITCH_STREET_GARAGE">Fitch Street Garage</option>
+	<option value="GRANOFF_STUDENT_HEALTH_CENTER">Granoff Student Health Center</option>
+	<option value="HICKERSON_HALL">Hickerson Hall</option>
+	<option value="JENNINGS_HALL">Jennings Hall</option>
+	<option value="JESS_DOW_FIELD">Jess Dow Field</option>
+	<option value="LANG_HOUSE">Lang House</option>
+	<option value="LYMAN_CENTER">Lyman Center</option>
+	<option value="MOORE_FIELD_HOUSE">Moore Field House</option>
+	<option value="MORRILL_HALL">Morrill Hall</option>
+	<option value="NEFF_HALL">Neff Hall</option>
+	<option value="NORTH_CAMPUS_MARKET">North Campus Market</option>
+	<option value="NORTH_CAMPUS_PARKING">North Campus Parking</option>
+	<option value="NORTH_CAMPUS_RESIDENCE_COMPLEX">North Campus Residence Complex</option>
+	<option value="NURSING_CLASSROOM_BUILDING">Nursing Classroom Building</option>
+	<option value="OFFICE_BUILDING_1">Office Building 1</option>
+	<option value="ORLANDO_HOUSE">Orlando House</option>
+	<option value="PELZ_GYMNASIUM">Pelz Gymnasium</option>
+	<option value="RUGBY_PRACTICE_FIELD">Rugby Practice Field</option>
+	<option value="SCHWARTZ_HALL">Schwartz Hall</option>
+	<option value="SCHOOL_OF_BUSINESS">School of Business</option>
+	<option value="SOFTBALL_FIELD">Softball Field</option>
+	<option value="STUDENT_CENTER_FOOD_COURT">Student Center Food Court</option>
+	<option value="TEMPORARY_BUILDING_6">Temporary Building 6</option>
+	<option value="TENNIS_COURTS">Tennis Courts</option>
+	<option value="UNIVERSITY_POLICE">University Police</option>
+	<option value="WEST_CAMPUS_GARAGE">West Campus Garage</option>
+	<option value="WEST_CAMPUS_RESIDENCE_COMPLEX">West Campus Residence Complex</option>
+	<option value="WILKINSON_HALL">Wilkinson Hall</option>
+	<option value="WINTERGREEN_AVENUE_GARAGE">Wintergreen Avenue Garage</option>
+	<option value="WINTERGREEN_BUILDING">Wintergreen Building</option>
+
+   </select>
+
+  <b>End: </b>
+    <select id="end">
+      <option></option>
+  <option value="ACADEMIC_SCIENCE_AND_LABORATORY_BUILDING">ASL</option>
+	<option value="ADANTI_STUDENT_CENTER">Adanti Student Center</option>
+	<option value="ALUMNI_HOUSE">Alumni House</option>
+	<option value="BAGEL_WAGON">Bagel Wagon</option>
+	<option value="BASEBALL_FIELD">Baseball Field</option>
+	<option value="BROWNELL_HALL">Brownell Hall</option>
+	<option value="BULEY_LIBRARY">Buley Library</option>
+	<option value="BULEY_LIBRARY_CAFE">Buley Library Cafe</option>
+	<option value="CHASE_HALL">Chase Hall</option>
+	<option value="CLASSROOM_BUILDING_8">Classroom Building 8</option>
+	<option value="CONNECTICUT_HALL">Connecticut Hall</option>
+	<option value="DAVIS_HALL">Davis Hall</option>
+	<option value="DAVIS_HALL_KIOSK">Davis Hall Kiosk</option>
+	<option value="EARL_HALL">Earl Hall</option>
+	<option value="ENERGY_CENTER">Energy Center</option>
+	<option value="ENGLEMAN_HALL">Engleman Hall</option>
+	<option value="ETHNIC_HERITAGE_CENTER">Ethnic Heritage Center</option>
+	<option value="FACILITIES_OPERATIONS_AND_PLANNING">Facilities Operations</option>
+	<option value="FARNHAM_HALL">Farnham Hall</option>
+	<option value="FITCH_STREET_GARAGE">Fitch Street Garage</option>
+	<option value="GRANOFF_STUDENT_HEALTH_CENTER">Granoff Student Health Center</option>
+	<option value="HICKERSON_HALL">Hickerson Hall</option>
+	<option value="JENNINGS_HALL">Jennings Hall</option>
+	<option value="JESS_DOW_FIELD">Jess Dow Field</option>
+	<option value="LANG_HOUSE">Lang House</option>
+	<option value="LYMAN_CENTER">Lyman Center</option>
+	<option value="MOORE_FIELD_HOUSE">Moore Field House</option>
+	<option value="MORRILL_HALL">Morrill Hall</option>
+	<option value="NEFF_HALL">Neff Hall</option>
+	<option value="NORTH_CAMPUS_MARKET">North Campus Market</option>
+	<option value="NORTH_CAMPUS_PARKING">North Campus Parking</option>
+	<option value="NORTH_CAMPUS_RESIDENCE_COMPLEX">North Campus Residence Complex</option>
+	<option value="NURSING_CLASSROOM_BUILDING">Nursing Classroom Building</option>
+	<option value="OFFICE_BUILDING_1">Office Building 1</option>
+	<option value="ORLANDO_HOUSE">Orlando House</option>
+	<option value="PELZ_GYMNASIUM">Pelz Gymnasium</option>
+	<option value="RUGBY_PRACTICE_FIELD">Rugby Practice Field</option>
+	<option value="SCHWARTZ_HALL">Schwartz Hall</option>
+	<option value="SCHOOL_OF_BUSINESS">School of Business</option>
+	<option value="SOFTBALL_FIELD">Softball Field</option>
+	<option value="STUDENT_CENTER_FOOD_COURT">Student Center Food Court</option>
+	<option value="TEMPORARY_BUILDING_6">Temporary Building 6</option>
+	<option value="TENNIS_COURTS">Tennis Courts</option>
+	<option value="UNIVERSITY_POLICE">University Police</option>
+	<option value="WEST_CAMPUS_GARAGE">West Campus Garage</option>
+	<option value="WEST_CAMPUS_RESIDENCE_COMPLEX">West Campus Residence Complex</option>
+	<option value="WILKINSON_HALL">Wilkinson Hall</option>
+	<option value="WINTERGREEN_AVENUE_GARAGE">Wintergreen Avenue Garage</option>
+	<option value="WINTERGREEN_BUILDING">Wintergreen Building</option>
+    </select>
+</div>
+
+
+<!-- +-----------+
+     |           |
+     |  FOOTER   |
+     |           |
+     +-----------+ -->
+<div id="footer">
+  <!-- No Parking Filled icon by Icons8 -->
+  <img src="https://png.icons8.com/no-parking-filled/ios7/25" title="No Parking Filled" width="20vh" height="20vh">
+  <!-- Parking icon by Icons8 -->
+  <img src="https://png.icons8.com/parking/ios7/25" title="Parking" width="20vh" height="20vh">
+  <!-- 25px 32px 50px 75px 100px -->
+
+  <img class="target_image irc_rii" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9o5173c1OzUYbHsLLucqmOURu0i2hUygxFchfRH-3c3Gx6M6b"
+    alt="Related image" style="width: 2vh; margin-top: 0px; height: 2vh;"
+    onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)">
+
+  <img class="target_image irc_rii" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQarcN2hVyG3lP656v4yHiWRXoAHSU-sQ0gBV7c3Jr3XR6ZdLWI"
+    alt="Related image" style="width: 2vh; margin-top: 0px; height: 2vh;" onload="typeof google==='object'&amp;&amp;google.aft&amp;&amp;google.aft(this)"><br>
+
+  <a id="icons8" href="https://icons8.com">Icon pack by Icons8</a>
+
+</div><!-- id="footer" -->
+
+<!-- script>
+ map = new google.maps.Map(document.getElementById('map'),
+        {   center: {lat: 42.367112, lng: -71.080964},
+    zoom: 16,
+    styles: [
+      {
+        "featureType": "poi",
+        "stylers": [
+          { "visibility": "off" }
+        ]
+      }
+    ]
+  });
+-->
+
+    <!-- 41.3326° N, 72.9475° W -->
+    <!--           center: {lat: 41.3326, lng: 72.9475}, showed Europe, so make it negative-->
+    <!-- /script -->
+
+    <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOha51O2UNapWWL29M00OyZLlnoWC3Gt8&callback=initMap"
+            async defer></script --> <!-- calls map.initMap() to put map on the screen -->
+  </body>
+  <script>
+  google.maps.event.addDomListener( window, 'load', initMap );
+  </script
+</html>

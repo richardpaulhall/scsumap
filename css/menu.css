@@ -1,0 +1,113 @@
+
+/* This edits the Menu bar */
+ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(0, 51, 173);
+}
+
+
+/* This keeps the menu starting from the left side of the screen */
+li {
+        float: left;
+}
+
+/* This is the styling for the menu options */
+li a, .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        xpadding: 14px 16px;
+        padding: 14px 8px;
+        text-decoration: none;
+}
+
+/* Background color when you hover over the menu */
+li a:hover, .dropdown:hover .dropbtn {
+        background-color: green;
+}
+
+
+li.dropdown {
+        display: inline-block;
+}
+
+/* Hides the dropdown content, sets the background color */
+.dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+}
+
+/* Font color of background content */
+.dropdown-content a {
+        color: black;
+        xpadding: 12px 16px;
+        padding: 4px 8px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+}
+
+/* background color when you hover over a dropdown option */
+.dropdown-content a:hover {
+	background-color: pink
+}
+
+/* Displays the dropdown content when you hover over a menu option */
+.dropdown:hover .dropdown-content {
+        display: block;
+}
+
+
+
+  #header {
+    position: static;
+  }
+  #dashboard {
+    position: static;
+  }
+  #floating-panel {
+    xposition: absolute;
+    position: static;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #0ff;
+    padding: 5px;
+    border: 1px solid yellow; /*#999;*/
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+
+
+ #directions-panel {
+      xposition: absolute;
+      xtop: 10px;
+      xleft: 50%;
+      position: static;
+      z-index: 5;
+      background-color: #bbb;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      xborder: 1px solid #999;
+      border-top: 5px solid #666;
+      border-bottom: 5px solid #666;
+      text-align: center;
+      font-family: 'Roboto','sans-serif';
+      line-height: 30px;
+      xpadding-left: 100px;
+      xcomment: "2017-10-20 Rick, just a few tweaks"
+  }
+
+  input {
+    border: 1px solid blue;
+
+  }
